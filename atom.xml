@@ -23,12 +23,12 @@
     <published>2024-04-05T22:40:00.000Z</published>
     <updated>2024-04-05T22:40:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="good"><a href="#good" class="headerlink" title="good"></a>good</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="good"><a href="#good" class="headerlink" title="good"></a>good</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> iostream</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;good&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;good&quot;&gt;&lt;a href=&quot;#good&quot; class=&quot;headerlink&quot; title=&quot;good&quot;&gt;&lt;/a&gt;good&lt;/h2&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;good&quot;&gt;&lt;a href=&quot;#good&quot; class=&quot;headerlink&quot; title=&quot;good&quot;&gt;&lt;/a&gt;good&lt;/h2&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;</summary>
       
     
     
