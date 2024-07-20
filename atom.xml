@@ -23,13 +23,13 @@
     <published>2024-07-17T03:55:00.000Z</published>
     <updated>2024-07-17T03:59:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>先创建看看，慢慢更新</p>]]></content>
+    <content type="html"><![CDATA[<p>先创建看看，慢慢更新</p><script type="math/tex; mode=display">evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i}</script>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;先创建看看，慢慢更新&lt;/p&gt;
-</summary>
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;evidence_{i}=&#92;sum_{j}W_{ij}x_{j}+b_{i}&lt;/script&gt;</summary>
       
     
     

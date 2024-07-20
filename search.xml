@@ -8,7 +8,7 @@
       <link href="/2024/07/17/Electronic%20evidence%20collection/"/>
       <url>/2024/07/17/Electronic%20evidence%20collection/</url>
       
-        <content type="html"><![CDATA[<p>先创建看看，慢慢更新</p>]]></content>
+        <content type="html"><![CDATA[<p>先创建看看，慢慢更新</p><script type="math/tex; mode=display">evidence_{i}=\sum_{j}W_{ij}x_{j}+b_{i}</script>]]></content>
       
       
       
@@ -45,17 +45,6 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>someone I know</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
@@ -70,6 +59,17 @@
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
