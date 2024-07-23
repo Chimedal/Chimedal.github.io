@@ -1,3 +1,4 @@
+https://chimedal.github.io/2024/07/23/SSTI-python%E5%90%91/
 https://chimedal.github.io/link/index.html
 https://chimedal.github.io/2024/07/17/Electronic%20evidence%20collection/
 https://chimedal.github.io/2024/04/06/life2024/
@@ -5,4 +6,6 @@ https://chimedal.github.io/about/index.html
 https://chimedal.github.io/tags/index.html
 https://chimedal.github.io/
 https://chimedal.github.io/tags/EEC/
+https://chimedal.github.io/tags/summary/
+https://chimedal.github.io/tags/python/
 https://chimedal.github.io/tags/life/
