@@ -1,3 +1,4 @@
+https://chimedal.github.io/2024/08/15/ctfshow-SSRF/
 https://chimedal.github.io/2024/08/01/ctfshow-jwt/
 https://chimedal.github.io/2024/08/12/ctfshow-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/
 https://chimedal.github.io/2024/08/03/ctfshow-nodejs/
@@ -13,7 +14,7 @@ https://chimedal.github.io/tags/index.html
 https://chimedal.github.io/
 https://chimedal.github.io/tags/EEC/
 https://chimedal.github.io/tags/summary/
-https://chimedal.github.io/tags/Python/
 https://chimedal.github.io/tags/JavaScript/
 https://chimedal.github.io/tags/ctf-practice/
+https://chimedal.github.io/tags/Python/
 https://chimedal.github.io/tags/life/
