@@ -142,13 +142,6 @@
   </url>
   
   <url>
-    <loc>https://chimedal.github.io/tags/ctf-practice/</loc>
-    <lastmod>2024-08-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chimedal.github.io/tags/Python/</loc>
     <lastmod>2024-08-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -156,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://chimedal.github.io/tags/JavaScript/</loc>
+    <loc>https://chimedal.github.io/tags/ctf-practice/</loc>
     <lastmod>2024-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -164,6 +157,13 @@
   
   <url>
     <loc>https://chimedal.github.io/tags/life/</loc>
+    <lastmod>2024-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chimedal.github.io/tags/JavaScript/</loc>
     <lastmod>2024-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
