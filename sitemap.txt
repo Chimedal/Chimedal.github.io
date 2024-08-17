@@ -12,9 +12,10 @@ https://chimedal.github.io/2024/04/06/life2024/
 https://chimedal.github.io/about/index.html
 https://chimedal.github.io/tags/index.html
 https://chimedal.github.io/
-https://chimedal.github.io/tags/EEC/
 https://chimedal.github.io/tags/summary/
-https://chimedal.github.io/tags/JavaScript/
-https://chimedal.github.io/tags/ctf-practice/
+https://chimedal.github.io/tags/EEC/
 https://chimedal.github.io/tags/Python/
+https://chimedal.github.io/tags/ctf-practice/
+https://chimedal.github.io/tags/JavaScript/
 https://chimedal.github.io/tags/life/
+https://chimedal.github.io/tags/private/
