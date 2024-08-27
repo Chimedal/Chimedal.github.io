@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chimedal.github.io/2024/08/28/CINTA_00/</loc>
+    
+    <lastmod>2024-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chimedal.github.io/2024/08/15/ctfshow-SSRF/</loc>
     
     <lastmod>2024-08-15</lastmod>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://chimedal.github.io/2024/08/01/ctfshow-jwt/</loc>
-    
-    <lastmod>2024-08-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chimedal.github.io/2024/08/12/CINTA_00/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -173,6 +173,13 @@
   
   <url>
     <loc>https://chimedal.github.io/tags/life/</loc>
+    <lastmod>2024-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chimedal.github.io/tags/CINTA/</loc>
     <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

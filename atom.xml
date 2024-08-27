@@ -6,7 +6,7 @@
   <link href="https://chimedal.github.io/atom.xml" rel="self"/>
   
   <link href="https://chimedal.github.io/"/>
-  <updated>2024-08-15T08:36:00.000Z</updated>
+  <updated>2024-08-27T17:22:00.000Z</updated>
   <id>https://chimedal.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CINTA_00</title>
+    <link href="https://chimedal.github.io/2024/08/28/CINTA_00/"/>
+    <id>https://chimedal.github.io/2024/08/28/CINTA_00/</id>
+    <published>2024-08-27T17:21:00.000Z</published>
+    <updated>2024-08-27T17:22:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>斌头的暑假作业，不是同学提醒我都忘了课堂派有这个……</p><h1 id="浅浅证明"><a href="#浅浅证明" class="headerlink" title="浅浅证明"></a>浅浅证明</h1><p>证明: 当n&gt;3时，<script type="math/tex">n! > 2^{n}</script></p><p>解：</p><ol><li><code>n! = n * (n-1) * (n-2) * …… * 3 * 2 * 1</code></li><li>已知<code>n &gt; 3</code>,<code>n! = n * (n-1) * (n-2) * …… * 6</code>一定成立</li><li>把<code>n!</code>分为两部分,第一部分为从右往左数4个，第二部分则为剩下的，记为<code>m1,m2</code>，同样的，<script type="math/tex">2^{n}</script>以同样的分法分成两部分，记为<code>n1,n2</code></li><li><ul><li>当<code>n = 4</code>时，<code>m2 = n2 = 0</code>,<code>m1 = 4! = 24</code>,<code>n2 =</code><script type="math/tex">2^{4}</script><code>= 16</code>,<code>m1 &gt; n1</code>,得证</li><li>当<code>n &gt; 4</code>时,因为m2每一项均大于n2对应项，则不难得出<code>m2 &gt; n2</code>,<code>m1 &gt; n1</code>的证法同上，则得证</li></ul></li><li>综上所述，当n&gt;3时，<script type="math/tex">n! > 2^{n}</script>得证</li></ol><h1 id="小小程序"><a href="#小小程序" class="headerlink" title="小小程序"></a>小小程序</h1><p>写一个C语言程序，计算阶乘：输入整数n，输出n！</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> <span class="title function_">factorial</span><span class="params">(<span class="type">int</span> n)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入一个整数: &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查输入是否为非负整数</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;你是来捣乱的吗，n能是负数吗.\n&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 计算阶乘</span></span><br><span class="line">        result = factorial(n);</span><br><span class="line">        <span class="comment">// 输出结果</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d 的阶乘是 %llu\n&quot;</span>, n, result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数定义：计算阶乘</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> <span class="title function_">factorial</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 0的阶乘是1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>); <span class="comment">// 递归计算阶乘</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;斌头的暑假作业，不是同学提醒我都忘了课堂派有这个……&lt;/p&gt;
+&lt;h1 id=&quot;浅浅证明&quot;&gt;&lt;a href=&quot;#浅浅证明&quot; class=&quot;headerlink&quot; title=&quot;浅浅证明&quot;&gt;&lt;/a&gt;浅浅证明&lt;/h1&gt;&lt;p&gt;证明: 当n&amp;gt;3时，&lt;script type=&quot;m</summary>
+      
+    
+    
+    
+    
+    <category term="CINTA" scheme="https://chimedal.github.io/tags/CINTA/"/>
+    
+  </entry>
   
   <entry>
     <title>ctfshow-SSRF</title>
@@ -30,29 +53,6 @@
       
     <summary type="html">&lt;p&gt;继续拿题玩玩我的vps，虽然这些题以前没有vps的时候也做出来了，但是这一次重温还是让我完善了自己的vps配置（Nginx原来要改配置文件才能执行PHP文件），总的来说还是很有收获&lt;/p&gt;
 &lt;h1 id=&quot;开胃小菜&quot;&gt;&lt;a href=&quot;#开胃小菜&quot; class=&quot;heade</summary>
-      
-    
-    
-    
-    
-    <category term="ctf_practice" scheme="https://chimedal.github.io/tags/ctf-practice/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CINTA_00</title>
-    <link href="https://chimedal.github.io/2024/08/12/CINTA_00/"/>
-    <id>https://chimedal.github.io/2024/08/12/CINTA_00/</id>
-    <published>2024-08-12T05:23:00.000Z</published>
-    <updated>2024-08-12T05:25:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>斌头的暑假作业，不是同学提醒我都忘了课堂派有这个……</p><h1 id="浅浅证明"><a href="#浅浅证明" class="headerlink" title="浅浅证明"></a>浅浅证明</h1><p>证明: 当n&gt;3时，<script type="math/tex">n! > 2^{n}</script></p><p>解：</p><ol><li><code>n! = n * (n-1) * (n-2) * …… * 3 * 2 * 1</code></li><li>已知<code>n &gt; 3</code>,<code>n! = n * (n-1) * (n-2) * …… * 6</code>一定成立</li><li>把<code>n!</code>分为两部分,第一部分为从右往左数4个，第二部分则为剩下的，记为<code>m1,m2</code>，同样的，<script type="math/tex">2^{n}</script>以同样的分法分成两部分，记为<code>n1,n2</code></li><li><ul><li>当<code>n = 4</code>时，<code>m2 = n2 = 0</code>,<code>m1 = 4! = 24</code>,<code>n2 =</code><script type="math/tex">2^{4}</script><code>= 16</code>,<code>m1 &gt; n1</code>,得证</li><li>当<code>n &gt; 4</code>时,因为m2每一项均大于n2对应项，则不难得出<code>m2 &gt; n2</code>,<code>m1 &gt; n1</code>的证法同上，则得证</li></ul></li><li>综上所述，当n&gt;3时，<script type="math/tex">n! > 2^{n}</script>得证</li></ol><h1 id="小小程序"><a href="#小小程序" class="headerlink" title="小小程序"></a>小小程序</h1><p>写一个C语言程序，计算阶乘：输入整数n，输出n！</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> <span class="title function_">factorial</span><span class="params">(<span class="type">int</span> n)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> result;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入一个整数: &quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查输入是否为非负整数</span></span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;你是来捣乱的吗，n能是负数吗.\n&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 计算阶乘</span></span><br><span class="line">        result = factorial(n);</span><br><span class="line">        <span class="comment">// 输出结果</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d 的阶乘是 %llu\n&quot;</span>, n, result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数定义：计算阶乘</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> <span class="title function_">factorial</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 0的阶乘是1</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n * factorial(n - <span class="number">1</span>); <span class="comment">// 递归计算阶乘</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;斌头的暑假作业，不是同学提醒我都忘了课堂派有这个……&lt;/p&gt;
-&lt;h1 id=&quot;浅浅证明&quot;&gt;&lt;a href=&quot;#浅浅证明&quot; class=&quot;headerlink&quot; title=&quot;浅浅证明&quot;&gt;&lt;/a&gt;浅浅证明&lt;/h1&gt;&lt;p&gt;证明: 当n&amp;gt;3时，&lt;script type=&quot;m</summary>
       
     
     
