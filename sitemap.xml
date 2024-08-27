@@ -20,6 +20,15 @@
   </url>
   
   <url>
+    <loc>https://chimedal.github.io/2024/08/12/CINTA_00/</loc>
+    
+    <lastmod>2024-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chimedal.github.io/2024/08/12/ctfshow-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</loc>
     
     <lastmod>2024-08-12</lastmod>
@@ -121,50 +130,50 @@
 
   <url>
     <loc>https://chimedal.github.io/</loc>
-    <lastmod>2024-08-17</lastmod>
+    <lastmod>2024-08-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
+    <loc>https://chimedal.github.io/tags/ctf-practice/</loc>
+    <lastmod>2024-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chimedal.github.io/tags/EEC/</loc>
-    <lastmod>2024-08-17</lastmod>
+    <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/summary/</loc>
-    <lastmod>2024-08-17</lastmod>
+    <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/Python/</loc>
-    <lastmod>2024-08-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chimedal.github.io/tags/ctf-practice/</loc>
-    <lastmod>2024-08-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chimedal.github.io/tags/life/</loc>
-    <lastmod>2024-08-17</lastmod>
+    <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/JavaScript/</loc>
-    <lastmod>2024-08-17</lastmod>
+    <lastmod>2024-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chimedal.github.io/tags/life/</loc>
+    <lastmod>2024-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
