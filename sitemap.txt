@@ -1,3 +1,4 @@
+https://chimedal.github.io/2024/09/22/Initial/
 https://chimedal.github.io/2024/09/08/CINTA_01/
 https://chimedal.github.io/2024/08/28/CINTA_00/
 https://chimedal.github.io/2024/08/15/ctfshow-SSRF/
@@ -15,6 +16,7 @@ https://chimedal.github.io/tags/index.html
 https://chimedal.github.io/
 https://chimedal.github.io/tags/CINTA/
 https://chimedal.github.io/tags/EEC/
+https://chimedal.github.io/tags/Penetration/
 https://chimedal.github.io/tags/summary/
 https://chimedal.github.io/tags/Python/
 https://chimedal.github.io/tags/ctf-practice/
