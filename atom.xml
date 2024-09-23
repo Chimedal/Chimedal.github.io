@@ -6,7 +6,7 @@
   <link href="https://chimedal.github.io/atom.xml" rel="self"/>
   
   <link href="https://chimedal.github.io/"/>
-  <updated>2024-09-22T15:42:00.000Z</updated>
+  <updated>2024-09-23T16:08:00.000Z</updated>
   <id>https://chimedal.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CINTA_02</title>
+    <link href="https://chimedal.github.io/2024/09/24/CINTA_02/"/>
+    <id>https://chimedal.github.io/2024/09/24/CINTA_02/</id>
+    <published>2024-09-23T16:08:00.000Z</published>
+    <updated>2024-09-23T16:08:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h1><p>题目：利用 egcd 算法的思路，手动计算以下数值的 Bézout 系数和最大公因子:</p><p>a = 132，b = 78</p><p>a = 273，b = 131</p><h2 id="解："><a href="#解：" class="headerlink" title="解："></a>解：</h2><p>egcd算法可以帮助我们计算两个整数 (a) 和 (b) 的最大公因子（gcd），以及找到贝祖系数 (x) 和 (y)，使得：</p><script type="math/tex; mode=display">ax + by = \text{gcd}(a, b)</script><h3 id="1-a-132-b-78"><a href="#1-a-132-b-78" class="headerlink" title="1: a = 132,b = 78"></a>1: a = 132,b = 78</h3><script type="math/tex; mode=display">\begin{aligned}\begin{pmatrix}1 & 0& 132 \\ 0 & 1 &78\end{pmatrix} &\rightarrow \begin{pmatrix} 0 & 1 & 78 \\ 1 & -1 &54 \end{pmatrix}\rightarrow \begin{pmatrix} 1 & -1 &54 \\ -1 & 2 &24 \end{pmatrix}\\\\&\rightarrow \begin{pmatrix} -1 & 2 &24  \\ 3 & -5 & 6\end{pmatrix}\rightarrow \begin{pmatrix} 3 & -5 & 6 \\  &  & 0\end{pmatrix}\\\text{结果：} r = 6, s = -5, d = 6\end{aligned}</script><h3 id="2-a-273-b-131"><a href="#2-a-273-b-131" class="headerlink" title="2: a = 273,b = 131"></a>2: a = 273,b = 131</h3><script type="math/tex; mode=display">\begin{aligned}\begin{pmatrix}1 & 0& 273 \\ 0 & 1 &131\end{pmatrix} &\rightarrow \begin{pmatrix} 0 & 1 & 131 \\ 1 & -2 &11 \end{pmatrix}\rightarrow \begin{pmatrix} 1 & -2 &11 \\ -11 & 23 &10 \end{pmatrix}\\\\&\rightarrow \begin{pmatrix} -11 & 23 &10  \\ 12 & -25 & 1\end{pmatrix}\rightarrow \begin{pmatrix} 12 & -25 & 1 \\  &  & 0\end{pmatrix}\\\text{结果：} r = 12, s = -25, d = 1\end{aligned}</script><h1 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h1><script type="math/tex; mode=display">\text{假设 } g^a \equiv 1 \pmod{m} \text{ 且 } g^b \equiv 1 \pmod{m}, \text{ 请证明 } g^{\gcd(a,b)} \equiv 1 \pmod{m}.</script><h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><script type="math/tex; mode=display">下面l,j,k均为非零整数</script><script type="math/tex; mode=display">g^a \equiv 1 \pmod{m} 意味着m整除g^a-1,即g^a = lm +1</script><script type="math/tex; mode=display">g^b \equiv 1 \pmod{m} 意味着m整除g^a-1,即g^a = jm +1</script><script type="math/tex; mode=display">所以证明m也整除g^{\gcd(a,b)}-1即可</script><script type="math/tex; mode=display">由Bezout定理知道，存在整数x和y使得ax + by = \gcd(a,b)</script><script type="math/tex; mode=display">所以证明g^{ax + by} = km +1即可</script><script type="math/tex; mode=display">由于 g^{ax} , g^{by}均等于 1 模 m，乘法的模运算性质告诉我们g^{ax + by} = g^{ax} * g^{by} = 1*1\equiv 1 \pmod{m}</script><script type="math/tex; mode=display">所以得证</script><h1 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h1><script type="math/tex; mode=display">证明:对任意整数n,2n+1 \text{和}9n+4互素</script><h2 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h2><script type="math/tex; mode=display">\begin{aligned}\begin{pmatrix}1 & 0& 2n+1 \\ 0 & 1 &9n+4\end{pmatrix} &\rightarrow \begin{pmatrix} 1 & 2 & 2n+1 \\ -4 & 1 &n \end{pmatrix}\rightarrow \begin{pmatrix} -4 & 1 &n \\ 9 & -2 &1 \end{pmatrix}\\\\&\rightarrow \begin{pmatrix} 9 & -2 &1  \\  &  & 0\end{pmatrix}\\存在整数r=9,s=-2\\使得(2n+1)*9(9n+4) * (-2) = 1\\所以得证\end{aligned}</script><h1 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h1><p>用代码(语言不限)实现egcd算法，并利用自己的代码求以下a和b的最大公因子和Bezout系数。</p><p>1）a = 154954179184694689280846339291, b = 6413915469668918084633</p><p>2）a = 1260343087433328623791076926584, b = 84279984323383</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">egcd</span>(<span class="params">a, b</span>):</span><br><span class="line">    j0, j1, s0, s1 = <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(b):</span><br><span class="line">        a, b ,q= b, a%b ,a//b</span><br><span class="line">        j0=j1</span><br><span class="line">        j1=j0 - q*j1</span><br><span class="line">        s0= s1</span><br><span class="line">        s1=s0 - q*s1</span><br><span class="line">    <span class="keyword">return</span> a, j0, s0</span><br><span class="line">a1 = <span class="number">154954179184694689280846339291</span></span><br><span class="line">b1 = <span class="number">6413915469668918084633</span></span><br><span class="line">gcd1, x1, y1 = egcd(a1, b1)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a1,b1最大公因数为<span class="subst">&#123;gcd1&#125;</span>,bezout系数为<span class="subst">&#123;x1&#125;</span><span class="subst">&#123;y1&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">a2 = <span class="number">1260343087433328623791076926584</span></span><br><span class="line">b2 = <span class="number">84279984323383</span></span><br><span class="line">gcd2, x2, y2 = egcd(a2, b2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;a2,b2最大公因数为<span class="subst">&#123;gcd2&#125;</span>,bezout系数为<span class="subst">&#123;x2&#125;</span><span class="subst">&#123;y2&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;第一题&quot;&gt;&lt;a href=&quot;#第一题&quot; class=&quot;headerlink&quot; title=&quot;第一题&quot;&gt;&lt;/a&gt;第一题&lt;/h1&gt;&lt;p&gt;题目：利用 egcd 算法的思路，手动计算以下数值的 Bézout 系数和最大公因子:&lt;/p&gt;
+&lt;p&gt;a = 132，b = 78</summary>
+      
+    
+    
+    
+    
+    <category term="CINTA" scheme="https://chimedal.github.io/tags/CINTA/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux提权汇总</title>
