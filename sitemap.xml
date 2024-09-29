@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chimedal.github.io/2024/09/30/Hospital/</loc>
+    
+    <lastmod>2024-09-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chimedal.github.io/2024/09/27/ctfshow-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/</loc>
     
     <lastmod>2024-09-27</lastmod>
@@ -166,7 +175,7 @@
 
   <url>
     <loc>https://chimedal.github.io/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -174,49 +183,56 @@
   
   <url>
     <loc>https://chimedal.github.io/tags/CINTA/</loc>
-    <lastmod>2024-09-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chimedal.github.io/tags/EEC/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/Penetration/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chimedal.github.io/tags/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83/</loc>
+    <lastmod>2024-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chimedal.github.io/tags/EEC/</loc>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/summary/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/Python/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/ctf-practice/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chimedal.github.io/tags/JavaScript/</loc>
-    <lastmod>2024-09-28</lastmod>
+    <lastmod>2024-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
