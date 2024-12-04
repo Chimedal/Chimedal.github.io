@@ -1,11 +1,7 @@
-https://chimedal.github.io/2024/10/07/CINTA_03/
 https://chimedal.github.io/2024/09/30/Hospital/
 https://chimedal.github.io/2024/09/27/ctfshow-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/
-https://chimedal.github.io/2024/09/24/CINTA_02/
 https://chimedal.github.io/2024/09/22/Linux%E6%8F%90%E6%9D%83/
 https://chimedal.github.io/2024/09/22/Initial/
-https://chimedal.github.io/2024/09/08/CINTA_01/
-https://chimedal.github.io/2024/08/28/CINTA_00/
 https://chimedal.github.io/2024/08/15/ctfshow-SSRF/
 https://chimedal.github.io/2024/08/01/ctfshow-jwt/
 https://chimedal.github.io/2024/08/12/ctfshow-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/
@@ -19,11 +15,10 @@ https://chimedal.github.io/2024/07/17/Electronic%20evidence%20collection/
 https://chimedal.github.io/about/index.html
 https://chimedal.github.io/tags/index.html
 https://chimedal.github.io/
-https://chimedal.github.io/tags/CINTA/
 https://chimedal.github.io/tags/EEC/
 https://chimedal.github.io/tags/Penetration/
 https://chimedal.github.io/tags/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83/
 https://chimedal.github.io/tags/summary/
+https://chimedal.github.io/tags/Python/
 https://chimedal.github.io/tags/ctf-practice/
 https://chimedal.github.io/tags/JavaScript/
-https://chimedal.github.io/tags/Python/
